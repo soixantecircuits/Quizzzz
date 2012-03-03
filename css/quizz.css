@@ -1,0 +1,45 @@
+html{
+  overflow:hidden;
+}
+body{
+  margin: 2px 0px;
+  overflow: hidden;
+  padding: 0px 4px;
+}
+
+.container{
+  overflow: hidden;
+  position: relative;
+}
+.center{
+  text-align:center;
+}
+ul, li{
+  list-style: none;
+}
+
+input[type="radio"]{
+  margin-right: 9px;
+}
+
+.question_container{
+  position: absolute;
+  display: none;
+  width: 100%;
+}
+
+.question{
+  position: absolute;
+  z-index:999;
+  display:block;
+}
+
+.reply{
+  position: absolute;
+  z-index:888;
+  display: none;
+}
+
+#score{
+  font-size:15px;
+}
