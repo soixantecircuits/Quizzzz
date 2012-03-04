@@ -39,13 +39,13 @@ input[type="radio"]{
 }
 
 .question{
-  position: absolute;
+  position: relative;
   z-index:999;
   display:block;
 }
 
 .reply{
-  position: absolute;
+  position: relative;
   z-index:888;
   display: none;
   padding-right: 6px;
@@ -53,4 +53,9 @@ input[type="radio"]{
 
 #score{
   font-size:15px;
+}
+
+.progress.quizz{
+  margin-top: 10px;
+  height: 2px;
 }

@@ -11,6 +11,7 @@ Handlebars.registerHelper("each_with_index", function(array, fn) {
     // stick an index property onto the item, starting with 1, may make configurable later
     item.index = i+1;
     item.total = total;
+    item.percent = item.index/item.total*100;
     // show the inside of the block
     buffer += fn(item);
   }
