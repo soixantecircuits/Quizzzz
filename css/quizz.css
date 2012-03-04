@@ -1,13 +1,16 @@
 html{
   overflow:hidden;
+  height: 100%;
 }
 body{
   margin: 2px 0px;
   overflow: hidden;
   padding: 0px 4px;
+  height: 100%;
 }
 
-.container{
+#container, #main{
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -26,6 +29,13 @@ input[type="radio"]{
   position: absolute;
   display: none;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.questions-wrapper{
+  position: relative;
+  width: 100%;
 }
 
 .question{
@@ -38,6 +48,7 @@ input[type="radio"]{
   position: absolute;
   z-index:888;
   display: none;
+  padding-right: 6px;
 }
 
 #score{

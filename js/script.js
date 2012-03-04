@@ -5,6 +5,7 @@
 var quizz={};
 quizz.score = 0;
 quizz.total = questions.questions.length;
+quizz.start = 1;
 quizz.journey = function(){
   var date = new Date();
   if( (date.getHours() <13 ) && (date.getHours() > 5)){
@@ -23,7 +24,7 @@ $(function(){
   var template = Handlebars.compile(source);
   var content = template(questions);
   var correct = false;
-  var current_question = 1;
+  var current_question = quizz.start;
 
   $("h1").html(questions.title);
   $("#main").html(content);
@@ -63,10 +64,25 @@ $(function(){
       $("#question-group-"+current_question).fadeOut();
       if(current_question !== quizz.total){
         current_question++;
+        $("#question-group-"+current_question).find(".question").show();
         $("#question-group-"+current_question).fadeIn();
         console.log("Next-question");  
       }else{
-        $("#score").html("<p>"+questions.end+quizz.journey()+".</p>"+"<p>Votre score est de : "+quizz.score+"/"+quizz.total+"</p>").fadeIn();
+        $("#main").hide();
+        $("#score").html("<p>"+questions.end+quizz.journey()+".</p>"+"<p>Votre score est de : "+quizz.score+"/"+quizz.total+"</p><button class='restart btn btn-inverse'>Recommencer</button>").fadeIn();
+        $(".restart").click(function(){
+          current_question = quizz.start;
+          quizz.score = 0;
+          $("#score").fadeOut();
+          $(".reply").hide();
+
+          $("input:radio['']").each(function(){
+            $(this).prop('checked', false);
+          });
+          $("#question-group-"+current_question).find(".question").show();
+          $("#question-group-"+current_question).fadeIn();
+          $("#main").fadeIn();
+        });
       }
     });
   });
