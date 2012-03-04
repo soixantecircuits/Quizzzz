@@ -43,15 +43,18 @@ $(function(){
         alert("Désolé mais vous devez selectionner une réponse pour continuer.");
         return false;
       }else{
+        var cls = '';
         var msg = '';
         if(correct){
           console.log('bravo');
-          msg = 'bravo';
+          msg = 'Bien joué ! Bonne réponse !';
+          cls = 'alert-success';
           quizz.score++;
         }else{
-          msg = 'booh';
-          console.log('boooohhhh');
+          msg = 'Mince :(, mauvaise réponse';
+          cls = 'alert-error'
         }
+        $("#reply-"+current_question).addClass(cls);
         $("#reply-"+current_question).html(msg);     
       }
       $(this).parents('.question').hide();
