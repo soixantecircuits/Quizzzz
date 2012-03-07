@@ -18,6 +18,9 @@ quizz.journey = function(){
 };
 
 $(function(){
+  if(pageTracker)
+    pageTracker._trackPageview('Quizz started ');
+
   $('#main').hide();
 
   var source   = $("#questions-tpl").html();
@@ -51,7 +54,7 @@ $(function(){
           cls = 'alert-success';
           quizz.score++;
         }else{
-          msg = 'Mince :(, mauvaise réponse';
+          msg = 'Mauvaise réponse !';
           cls = 'alert-error'
         }
         $("#reply-"+current_question).addClass(cls);
@@ -72,6 +75,9 @@ $(function(){
         console.log("Next-question");  
       }else{
         $("#main").hide();
+        if(pageTracker)
+          pageTracker._trackPageview('Quizz finished with score : ' + quizz.score);
+        
         $("#score").html("<p>"+questions.end+quizz.journey()+".</p>"+"<p>Votre score est de : "+quizz.score+"/"+quizz.total+"</p><button class='restart btn btn-inverse'>Recommencer</button>").fadeIn();
         $(".restart").click(function(){
           current_question = quizz.start;
