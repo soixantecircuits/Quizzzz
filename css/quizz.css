@@ -59,3 +59,12 @@ input[type="radio"]{
   margin-top: 10px;
   height: 2px;
 }
+
+.restart{
+  float: left;
+}
+
+#twitter_share{
+  float: left;
+  margin-left: 5px;
+}

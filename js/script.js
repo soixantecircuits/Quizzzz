@@ -77,9 +77,12 @@ $(function(){
         $("#main").hide();
         if(window._gaq!==undefined)
           _gaq.push(['_trackEvent', 'Quizz', 'Finished', 'score : ' + quizz.score]);
-        var text = "<p>"+questions.end+quizz.journey()+".</p>"+"<p>Votre score est de : "+quizz.score+"/"+quizz.total+"</p><button class='restart btn btn-inverse'>Recommencer</button>";
-        var twitter_share = '<a href="https://twitter.com/intent/tweet?screen_name=J\'ai obtenu '+quizz.score+' bonnes réponses au quizz #hairscience de @l\'oreal - Me battrez-vous ? URL" class="twitter-mention-button" data-related="loreal">Tweet to @loreal</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>'
-        $("#score").html(text + "<br/>" + twitter_share).fadeIn();
+        
+        var text = "<p>"+questions.end+quizz.journey()+".</p>"+"<p>Votre score est de : "+quizz.score+"/"+quizz.total+"</p>";
+        var button = "<button class='restart btn btn-inverse'>Recommencer</button>";
+        var twitter_share = '<div id="twitter_share"><a href="https://twitter.com/intent/tweet?screen_name=loreal&text=J%27ai%20obtenu%20'+quizz.score+'%20bonnes%20r%C3%A9ponses%20au%20quizz%20%23hairscience%20de%20%40loreal" class="twitter-mention-button" data-lang="fr" data-size="large">Tweet to @loreal</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>';
+        
+        $("#score").html(text + "<br/>" + button + twitter_share).fadeIn();
 
         $(".restart").click(function(){
           current_question = quizz.start;
